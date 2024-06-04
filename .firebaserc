@@ -1,0 +1,5 @@
+{
+  "projects": {
+    "default": "poc-e2e-with-firebase-emulator"
+  }
+}

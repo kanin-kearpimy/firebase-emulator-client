@@ -13,13 +13,18 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install dependencies
-        uses: npm ci
+        run: npm ci
 
       - name: Install Java
         uses: actions/setup-java@v2
         with:
           distribution: "adopt"
           java-version: "11"
+
+      - name: Install Firebase CLI
+        uses: pocket-apps/action-setup-firebase@v2
+        with:
+          firebase-token: "1//0gtX614rLiwSOCgYIARAAGBASNwF-L9IrEUMjMpu6w7tXXdLU9kJydq0hM2-jiXaJCqC5A_08x6cylqki-W9tN1Q7hhbohqxTHcs"
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps

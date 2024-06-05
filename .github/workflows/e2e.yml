@@ -32,8 +32,5 @@ jobs:
       - name: Build
         run: npm run build:emulator
 
-      - name: Run Server
-        run: npm run preview:emulator
-
       - name: Run E2E test
         run: npm run test:e2e

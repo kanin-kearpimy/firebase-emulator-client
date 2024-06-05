@@ -35,3 +35,9 @@
   - `data/`: store firebase backup data. The data is loaded when start **firebase emulator**
 - `public/`: store static assets such as .html, image file.
 - `src`: Main react application
+
+##### Reference
+
+- https://firebase.google.com/docs/emulator-suite/connect_firestore#node.js-admin-sdk
+- https://playwright.dev/docs/api-testing
+- https://playwright.dev/docs/intro

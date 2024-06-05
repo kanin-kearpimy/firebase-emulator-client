@@ -24,7 +24,7 @@ jobs:
       - name: Install Firebase CLI
         uses: pocket-apps/action-setup-firebase@v2
         with:
-          firebase-token: "1//0gtX614rLiwSOCgYIARAAGBASNwF-L9IrEUMjMpu6w7tXXdLU9kJydq0hM2-jiXaJCqC5A_08x6cylqki-W9tN1Q7hhbohqxTHcs"
+          firebase-token: ${{ secrets.FIREBASE_TOKEN }}
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps

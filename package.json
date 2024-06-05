@@ -4,13 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
     "dev:emulator": "firebase emulators:exec 'npm run dev' --import=./tests/data --export-on-exit ./tests/data --ui",
-    "build": "tsc && vite build",
     "build:emulator": "firebase emulators:exec 'npm run build' --import=./tests/data --export-on-exit ./tests/data",
-    "preview": "vite preview",
     "preview:emulator": "firebase emulators:exec 'npm run preview' --import=./tests/data --export-on-exit ./tests/data",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "test:e2e": "npx playwright test"
   },
   "dependencies": {

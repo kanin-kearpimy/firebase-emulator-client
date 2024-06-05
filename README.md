@@ -1,30 +1,37 @@
-# React + TypeScript + Vite
+## PoC Firebase Emulator for Server
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#### Prerequisite for local development
 
-Currently, two official plugins are available:
+- Firebase CLI
+- Sync firebase with cloud project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#### Command
 
-## Expanding the ESLint configuration
+- `npm dev:emulator`: Start project locally with firebase emulator and firebase UI
+- `npm run build:emulator`: Build react project with firebase emulator
+- `npm run preview:emulator`: Start built react project with firebase emulator
+- `npm run test:e2e`: run playwright e2e test.
+  - See test suites in `/tests/test.spec.ts`
+  - This command will start application server by default setting in `playwright.config.ts`
+    ```json
+    "webServer": {
+      "command": "npm run preview:emulator",
+      "url": "http://localhost:4173",
+      "timeout": 10000,
+    }
+    ```
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+#### Endpoint
 
-- Configure the top-level `parserOptions` property like this:
+- http://localhost:8888: Firebase emulator (for server to connect)
+- http://localhost:4000: Firebase emulator UI
+- http://localhost:4173: Application endpoint
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+#### Project Structure
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- `.github/workflows/`: Github Action Pipeline
+- `playwright-report/`: report after run `npm run test:e2e`
+- `tests/`: playwright testcases.
+  - `data/`: store firebase backup data. The data is loaded when start **firebase emulator**
+- `public/`: store static assets such as .html, image file.
+- `src`: Main react application
